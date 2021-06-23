@@ -1,0 +1,52 @@
+<style>
+    @media (max-width: 400px){
+ 
+        .jumbotron{
+            background-color: rgb(166, 231, 194);
+        }  
+       
+    }
+
+    @media (max-width: 1300px){
+        .carousel{
+             height: 50%;
+        }
+        .jumbotron{
+            height: 50%;
+        }
+    }
+</style>
+<!-- carousel -->
+<div class="row"><div class="col-5"></div>
+<div class="col">
+    <button class="btn btn-success" style="height: 40px;">Ongoing Fundraising Campaigns</button></div></div>
+<br>
+    <div class="container" style="height: 60px;">
+<div class="row">
+    <div class="carousel " style="position: absolute;left: 2%;width: 35%; height: 50%;">
+        <ng-container *ngFor="let slide of slides; let i = index">
+            <img *ngIf="i === currentSlide" [src]="slide.src" class="slide" @carouselAnimation />
+        </ng-container>
+
+        <!-- controls -->
+        <button class="control prev bg-secondary" (click)="onPreviousClick()">
+            <span class="arrow left"></span>
+        </button>
+        <button class="control next bg-secondary" (click)="onNextClick()">
+            <span class="arrow right"></span>
+        </button>
+    </div>
+     
+    <div class="carousel jumbotron  " style="position: absolute;right: 2%;width: 60%; height: 50%;">
+        
+        <h1 *ngIf="currentSlide === 0"> Health Issue 1<span><h3>Description</h3></span>
+            <span><h3>Amount</h3></span></h1>
+        <h1 *ngIf="currentSlide === 1">Health Issue2<span><h3>Description</h3></span>
+            <br><br>  <span><h3>Thanks</h3></span></h1>
+        <h1 *ngIf="currentSlide === 2">Health Issue3<span><h3>Description</h3>
+            <br><br><span><h3>please Help</h3></span></span></h1>
+        <h1 *ngIf="currentSlide === 3">Health Issue4<span><h3>Description</h3></span>
+        <br><span><h3> Start Funding</h3> </span></h1>
+    </div>
+   
+</div></div>
